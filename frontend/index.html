@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A smart executive function assistant for neurodiverse individuals.">
+    <title>PS-1 Smart Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/js/voice-assistant.js"></script>
+    <script type="module" src="/js/app.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Cinematic Fixed Header -->
+        <header class="cinematic-header">
+            <div class="header-left">
+                <button id="view-history-btn" class="minimal-btn">/// HISTORY</button>
+            </div>
+
+            <div class="header-center">
+                <div class="logo">IGLOO // COMPANION</div>
+            </div>
+
+            <div class="header-right">
+                <div id="user-stats" class="stats-minimal">
+                    <span>STRK <b id="streak-display">0</b></span>
+                    <span>LVL <b id="level-display">1</b></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- The Monolith (Input + Controls) -->
+            <section id="input-section">
+                <!-- Energy Controls (Floating Top or Bottom) -->
+                <div id="energy-section">
+                    <div class="energy-options">
+                        <button class="energy-btn" data-level="low">Low Energy</button>
+                        <button class="energy-btn" data-level="medium">Medium</button>
+                        <button class="energy-btn" data-level="high">High Energy</button>
+                    </div>
+                </div>
+
+                <div class="input-wrapper">
+                    <textarea id="task-input" placeholder="Initialize sequence... [Type your tasks]"></textarea>
+                </div>
+
+                <div class="monolith-actions">
+                    <div class="left-actions">
+                        <button id="voice-btn" class="icon-btn" aria-label="Voice Input">● REC</button>
+                    </div>
+
+                    <button id="generate-btn" class="cta-btn">EXECUTE_PLAN</button>
+                </div>
+            </section>
+
+            <!-- Dashboard / Task View -->
+            <section id="dashboard" class="hidden">
+                <div id="task-list" class="grid-layout"></div>
+            </section>
+
+            <!-- History Slide-over -->
+            <section id="history-section" class="hidden">
+                <div class="section-header">
+                    <h2>/// LOGS</h2>
+                    <button id="clear-history-btn" class="minimal-btn">CLEAR</button>
+                </div>
+                <div id="history-search">
+                    <input type="text" id="history-search-input" placeholder="Search archives..."
+                        style="width: 100%; padding: 10px; background: rgba(0,0,0,0.05); border: none; font-family: 'Space Mono';" />
+                </div>
+                <div id="history-list" class="history-container"></div>
+            </section>
+
+
+            <!-- Active Task Mode (Focus Mode) -->
+            <div id="focus-mode-overlay" class="overlay hidden">
+                <div class="focus-modal glass-panel">
+                    <button id="close-focus" class="close-btn">×</button>
+                    <h2 id="focus-task-title">Task Title</h2>
+                    <div id="focus-step-display" class="giant-text">Step 1: Do the thing</div>
+                    <div class="focus-controls">
+                        <button id="prev-step" class="secondary-btn">← Prev</button>
+                        <button id="next-step" class="primary-btn">Next Step →</button>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="focus-progress" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Companion Avatar (Floating) -->
+        <div id="companion-avatar" class="avatar-container">
+            <div class="avatar-pulse"></div>
+            <div class="avatar-face">🤖</div>
+        </div>
+    </div>
+</body>
+
+</html>

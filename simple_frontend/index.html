@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Companion - Break Down Any Task</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🤖</div>
+                <h1>Smart Companion</h1>
+            </div>
+            <p class="tagline">Break any task into tiny, doable steps</p>
+        </header>
+
+        <!-- Main Input Section -->
+        <section class="input-section">
+            <div class="input-wrapper">
+                <textarea id="taskInput"
+                    placeholder="What do you need help with? (e.g., 'write a report', 'clean my room', 'start studying')"
+                    rows="3"></textarea>
+                <div class="input-actions">
+                    <button id="voiceBtn" class="voice-btn" title="Use voice input">
+                        🎤
+                    </button>
+                    <button id="submitBtn" class="submit-btn">
+                        Break It Down ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="results-section hidden">
+            <div class="task-header">
+                <h2 id="taskTitle"></h2>
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span id="progressText">0% Complete</span>
+                        <span id="stepsCount">0/0 Steps</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="steps-container" id="stepsContainer">
+                <!-- Steps will be inserted here -->
+            </div>
+
+            <button id="newTaskBtn" class="new-task-btn">
+                ← Start New Task
+            </button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ for neurodivergent minds</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

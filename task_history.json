@@ -1,0 +1,522 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-01-29T21:13:21.105973",
+    "user_query": "clean room",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Clean room",
+        "current_step": "Pick up visible items from floor.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Pick up visible items from floor.",
+          "Put away clothes in closet.",
+          "Sort toys into categories on shelves.",
+          "Put dirty laundry in hamper.",
+          "Wipe down surfaces with damp cloth.",
+          "Put away books on bookshelf."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 2,
+    "timestamp": "2026-01-29T21:14:27.229884",
+    "user_query": "clean bathroom",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Clean bathroom",
+        "current_step": "Pick up visible toiletries from countertops.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Pick up visible toiletries from countertops.",
+          "Put away toiletries in designated bathroom cabinets.",
+          "Remove trash from bathroom trash can.",
+          "Wipe down bathroom sink with a cloth.",
+          "Sweep and mop bathroom floor quickly.",
+          "Hang up towels in bathroom closet."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 3,
+    "timestamp": "2026-01-29T21:24:16.455910",
+    "user_query": "How are you?",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "How are you?",
+        "current_step": "I am functioning within normal parameters.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "I am functioning within normal parameters.",
+          "My systems are online and ready to assist.",
+          "I am prepared to help with your task.",
+          "Please provide more information about your request.",
+          "I will follow your instructions step by step.",
+          "Let's begin with your first action."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 4,
+    "timestamp": "2026-01-29T21:24:39.203013",
+    "user_query": "How are you? Clean my room.",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "How are you? clean my room.",
+        "current_step": "Pick up visible items from the floor.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Pick up visible items from the floor.",
+          "Put away clothes in the dresser.",
+          "Sort books into one category at a time.",
+          "Put away toys in the toy box.",
+          "Wipe down surfaces with a damp cloth.",
+          "Put dirty laundry in the hamper."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 5,
+    "timestamp": "2026-01-29T21:35:05.176640",
+    "user_query": "math work",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Math work",
+        "current_step": "Open math worksheet on the computer.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open math worksheet on the computer.",
+          "Read the first problem on the page.",
+          "Write down the problem on a separate sheet.",
+          "Identify the operation needed for the problem.",
+          "Choose a calculator to use for calculations.",
+          "Start solving the first math problem."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 6,
+    "timestamp": "2026-01-29T21:36:45.232265",
+    "user_query": "making card for birthday invitation",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Making card for birthday invitation",
+        "current_step": "Gather birthday invitation card and writing materials.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Gather birthday invitation card and writing materials.",
+          "Choose a pen or pencil to write with.",
+          "Write the birthday person's name on the card.",
+          "Write the date of the birthday party.",
+          "Add the time and location of the party.",
+          "Sign your name to the invitation."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 7,
+    "timestamp": "2026-01-30T12:50:02.217125",
+    "user_query": "complete homework",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Complete homework",
+        "current_step": "Open laptop and turn it on.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open laptop and turn it on.",
+          "Log in to school account and email.",
+          "Check for any new assignments or messages.",
+          "Open the first assignment and read instructions.",
+          "Start working on the first task or question.",
+          "Save progress and take a short break."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 8,
+    "timestamp": "2026-01-30T12:51:15.409797",
+    "user_query": "complete homework Clean room.",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Complete homework clean room.",
+        "current_step": "Pick up visible items from floor.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Pick up visible items from floor.",
+          "Put away toys and books on shelves.",
+          "Sort clothes into laundry basket.",
+          "Put dirty dishes in dishwasher.",
+          "Wipe down surfaces with damp cloth.",
+          "Put away remaining items in drawers."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 9,
+    "timestamp": "2026-01-30T13:14:35.655355",
+    "user_query": "complete marton",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Complete marton",
+        "current_step": "Take a deep breath.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Take a deep breath.",
+          "Get a pen and paper.",
+          "Write down the word \"marton\".",
+          "Look up the word \"marton\".",
+          "Find the definition of \"marton\".",
+          "Write down the definition."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 10,
+    "timestamp": "2026-01-30T13:15:27.555743",
+    "user_query": "complete marthon",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Complete marthon",
+        "current_step": "Set alarm for 6:00 AM tomorrow morning.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Set alarm for 6:00 AM tomorrow morning.",
+          "Plan breakfast for 6:30 AM.",
+          "Pack running shoes and clothes tonight.",
+          "Lay out outfit for tomorrow morning.",
+          "Prepare a post-run snack and water bottle.",
+          "Set a reminder for 6:00 AM tomorrow."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 11,
+    "timestamp": "2026-01-30T13:58:44.552482",
+    "user_query": "clean room",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Clean room",
+        "current_step": "Pick up visible items from floor and surfaces.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Pick up visible items from floor and surfaces.",
+          "Sort items into categories like clothes and books.",
+          "Put away items in designated storage spaces.",
+          "Wipe down surfaces with a damp cloth.",
+          "Vacuum or sweep the entire room.",
+          "Take out the trash and recycling."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 12,
+    "timestamp": "2026-01-30T14:09:29.225702",
+    "user_query": "test task",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Test task",
+        "current_step": "Take a few deep breaths to relax.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Take a few deep breaths to relax.",
+          "Open the task list on your device.",
+          "Check the current date and time.",
+          "Write down your top three priorities.",
+          "Break down the first priority into smaller tasks.",
+          "Review and adjust your list as needed."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 13,
+    "timestamp": "2026-01-30T14:12:39.373712",
+    "user_query": "write a report",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Write a report",
+        "current_step": "Open a new document on the computer.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open a new document on the computer.",
+          "Set the font to Arial size 12.",
+          "Choose a standard report template.",
+          "Enter the report title and date.",
+          "Begin writing the report content.",
+          "Save the document as a draft."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 14,
+    "timestamp": "2026-01-30T14:13:29.391530",
+    "user_query": "write a report, send emails",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Send emails",
+        "current_step": "Open email client application.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open email client application.",
+          "Compose new email to John Smith.",
+          "Enter subject: Meeting on Friday.",
+          "Type message: Confirm meeting time.",
+          "Attach meeting invitation document.",
+          "Send email to John Smith."
+        ]
+      },
+      {
+        "task": "Write a report",
+        "current_step": "Open report template on computer.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open report template on computer.",
+          "Choose report format and layout.",
+          "Set report title and date.",
+          "Write introduction to report summary.",
+          "Organize report sections and headings.",
+          "Save report as draft document."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 15,
+    "timestamp": "2026-01-30T14:14:23.155390",
+    "user_query": "how are you",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "How are you",
+        "current_step": "I'm here to assist you with your tasks.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "I'm here to assist you with your tasks.",
+          "What do you need help with today?",
+          "Please take a deep breath and relax.",
+          "Let's start with a simple task together.",
+          "Can you tell me your current priority?",
+          "I'm ready to help when you are."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 16,
+    "timestamp": "2026-01-30T14:15:19.788806",
+    "user_query": "packing for vacation",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Packing for vacation",
+        "current_step": "Check the weather forecast for the destination.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Check the weather forecast for the destination.",
+          "Gather a list of essential items to pack.",
+          "Start with packing non-essential items like books.",
+          "Pack a change of clothes for the first day.",
+          "Place a copy of important documents in luggage.",
+          "Double-check the airline's baggage size restrictions."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 17,
+    "timestamp": "2026-01-30T14:15:46.541193",
+    "user_query": "packing for vacation",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Packing for vacation",
+        "current_step": "Make a list of essential items to pack.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Make a list of essential items to pack.",
+          "Check the weather forecast for the destination.",
+          "Gather necessary documents such as passport and ID.",
+          "Pack clothing for the duration of the trip.",
+          "Include toiletries and personal care items in luggage.",
+          "Double-check the airline's baggage size restrictions."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 18,
+    "timestamp": "2026-01-30T14:16:57.535557",
+    "user_query": "write a report",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Write a report",
+        "current_step": "Open a new document on the computer.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open a new document on the computer.",
+          "Set the font to Arial size 12.",
+          "Choose a standard report template.",
+          "Enter the report title in the header.",
+          "Start writing the introduction paragraph.",
+          "Save the document as 'Report Draft'."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 19,
+    "timestamp": "2026-01-30T14:18:25.932095",
+    "user_query": "test task",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Test task",
+        "current_step": "Take a few deep breaths to relax.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Take a few deep breaths to relax.",
+          "Open the task list on your device.",
+          "Check the current date and time.",
+          "Write down the task you want to start.",
+          "Break the task into smaller, manageable steps.",
+          "Identify the first step to take action."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 20,
+    "timestamp": "2026-01-30T14:18:44.938655",
+    "user_query": "write email",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Write email",
+        "current_step": "Open email client on computer.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open email client on computer.",
+          "Compose new email message.",
+          "Enter recipient's email address.",
+          "Type subject line of email.",
+          "Write main body of email.",
+          "Send email to recipient."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 21,
+    "timestamp": "2026-01-30T14:20:27.293438",
+    "user_query": "complete homework",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Complete homework",
+        "current_step": "Gather all necessary homework materials and textbooks.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Gather all necessary homework materials and textbooks.",
+          "Check the homework assignment for any specific instructions.",
+          "Break down the assignment into smaller, manageable tasks.",
+          "Start with the easiest task or question first.",
+          "Work on one task at a time without distractions.",
+          "Take regular breaks to stay focused and refreshed."
+        ]
+      }
+    ],
+    "completed": false
+  },
+  {
+    "id": 22,
+    "timestamp": "2026-01-30T14:20:56.887577",
+    "user_query": "Complete my homework.",
+    "energy_level": "medium",
+    "generated_plan": [
+      {
+        "task": "Complete my homework.",
+        "current_step": "Open your homework folder on the computer.",
+        "next_step_index": 1,
+        "total_steps": 6,
+        "all_steps": [
+          "Open your homework folder on the computer.",
+          "Check the assignment list for due dates.",
+          "Prioritize the most urgent task first.",
+          "Break down large tasks into smaller steps.",
+          "Start with the easiest task on the list.",
+          "Work in 25-minute focused intervals with breaks."
+        ]
+      }
+    ],
+    "completed": false
+  }
+]
