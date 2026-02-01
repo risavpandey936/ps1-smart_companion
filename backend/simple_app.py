@@ -1,14 +1,18 @@
 import os
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from groq import Groq
+from backend import auth
 
 # Load environment
 load_dotenv()
 
 app = FastAPI(title="Smart Companion")
+
+# Include Auth Router
+app.include_router(auth.router)
 
 # Initialize Groq
 api_key = os.getenv("GROQ_API_KEY")
@@ -23,7 +27,7 @@ class TaskResponse(BaseModel):
     steps: list[str]
 
 @app.post("/break-down-task", response_model=TaskResponse)
-def break_down_task(request: TaskRequest):
+def break_down_task(request: TaskRequest, current_user: auth.User = Depends(auth.get_current_user)):
     """Simple endpoint: takes a task, returns micro-steps"""
     try:
         if not client:

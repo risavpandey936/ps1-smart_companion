@@ -12,61 +12,92 @@
 </head>
 
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <div class="logo-icon">🤖</div>
-                <h1>Smart Companion</h1>
-            </div>
-            <p class="tagline">Break any task into tiny, doable steps</p>
-        </header>
-
-        <!-- Main Input Section -->
-        <section class="input-section">
-            <div class="input-wrapper">
-                <textarea id="taskInput"
-                    placeholder="What do you need help with? (e.g., 'write a report', 'clean my room', 'start studying')"
-                    rows="3"></textarea>
-                <div class="input-actions">
-                    <button id="voiceBtn" class="voice-btn" title="Use voice input">
-                        🎤
-                    </button>
-                    <button id="submitBtn" class="submit-btn">
-                        Break It Down ✨
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Results Section -->
-        <section id="resultsSection" class="results-section hidden">
-            <div class="task-header">
-                <h2 id="taskTitle"></h2>
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span id="progressText">0% Complete</span>
-                        <span id="stepsCount">0/0 Steps</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="progressFill" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="steps-container" id="stepsContainer">
-                <!-- Steps will be inserted here -->
-            </div>
-
-            <button id="newTaskBtn" class="new-task-btn">
-                ← Start New Task
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>📜 Task History</h2>
+            <button id="themeBtn" class="theme-btn" title="Toggle Theme">
+                ☀️
             </button>
-        </section>
+        </div>
+        <div id="historyList" class="history-list">
+            <!-- History items will be inserted here -->
+            <div class="empty-history">
+                No past tasks yet.<br>Start by adding one!
+            </div>
+        </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Made with ❤️ for neurodivergent minds</p>
-        </footer>
+        <div class="sidebar-footer" style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border);">
+            <button id="logoutBtn" class="new-task-btn"
+                style="margin: 0; width: 100%; font-size: 0.9rem; background: transparent; border-color: var(--border);">
+                Log Out
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">
+                    <div class="logo-icon">🤖</div>
+                    <h1>Smart Companion</h1>
+                </div>
+                <p class="tagline">Break any task into tiny, doable steps</p>
+            </header>
+
+            <!-- Main Input Section -->
+            <section class="input-section">
+                <div class="input-wrapper">
+                    <textarea id="taskInput"
+                        placeholder="What do you need help with? (e.g., 'write a report', 'clean my room', 'start studying')"
+                        rows="3"></textarea>
+                    <div class="input-actions">
+                        <button id="voiceBtn" class="voice-btn" title="Use voice input">
+                            🎤
+                        </button>
+                        <button id="submitBtn" class="submit-btn">
+                            Break It Down ✨
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="task-header">
+                    <h2 id="taskTitle"></h2>
+                    <div class="progress-container">
+                        <div class="progress-info">
+                            <span id="progressText">0% Complete</span>
+                            <span id="stepsCount">0/0 Steps</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="steps-container" id="stepsContainer">
+                    <!-- Steps will be inserted here -->
+                </div>
+
+                <button id="speakBtn" class="new-task-btn"
+                    style="margin-top: 1rem; margin-bottom: 0.5rem; background: var(--surface-light);">
+                    🔊 Read Steps Aloud
+                </button>
+
+                <button id="newTaskBtn" class="new-task-btn">
+                    ← Start New Task
+                </button>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>Made with ❤️ for neurodivergent minds</p>
+            </footer>
+        </div>
     </div>
 
     <script src="app.js"></script>

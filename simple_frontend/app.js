@@ -9,10 +9,29 @@ const newTaskBtn = document.getElementById('newTaskBtn');
 const progressText = document.getElementById('progressText');
 const stepsCount = document.getElementById('stepsCount');
 const progressFill = document.getElementById('progressFill');
+const historyList = document.getElementById('historyList');
+const themeBtn = document.getElementById('themeBtn');
 
 // State
 let recognition = null;
 let isListening = false;
+let taskHistory = [];
+let isDarkMode = true;
+
+// Initialize
+window.addEventListener('load', () => {
+    checkAuth();
+    taskInput.focus();
+    loadHistory();
+    loadTheme();
+});
+
+function checkAuth() {
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+        window.location.href = '/login.html';
+    }
+}
 
 // Initialize Speech Recognition
 if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
@@ -44,7 +63,10 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
 // Event Listeners
 submitBtn.addEventListener('click', handleSubmit);
 voiceBtn.addEventListener('click', toggleVoice);
-newTaskBtn.addEventListener('click', resetForm);
+newTaskBtn.addEventListener('click', () => {
+    if (typeof stopSpeaking === 'function') stopSpeaking();
+    resetForm();
+});
 
 taskInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -67,11 +89,21 @@ async function handleSubmit() {
     submitBtn.innerHTML = '<span class="loading"></span> Thinking...';
 
     try {
+        const token = localStorage.getItem('access_token');
         const response = await fetch('/break-down-task', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
             body: JSON.stringify({ task })
         });
+
+        if (response.status === 401) {
+            localStorage.removeItem('access_token');
+            window.location.href = 'login.html';
+            return;
+        }
 
         if (!response.ok) {
             const error = await response.json();
@@ -80,6 +112,10 @@ async function handleSubmit() {
 
         const data = await response.json();
         displayResults(data);
+        addToHistory(data);
+
+        // Auto-read the steps
+        speakResponse(data);
 
     } catch (error) {
         console.error('Error:', error);
@@ -207,7 +243,203 @@ function stopListening() {
     voiceBtn.textContent = '🎤';
 }
 
-// Auto-focus on load
-window.addEventListener('load', () => {
-    taskInput.focus();
+const speakBtn = document.getElementById('speakBtn');
+
+
+speakBtn.addEventListener('click', () => {
+    if (window.speechSynthesis.speaking) {
+        stopSpeaking();
+    } else {
+        readDisplayedSteps();
+    }
 });
+
+// ... existing code ...
+
+function stopSpeaking() {
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+    speakBtn.textContent = '🔊 Read Steps Aloud';
+}
+
+themeBtn.addEventListener('click', toggleTheme);
+
+function speakResponse(data) {
+    if (!window.speechSynthesis) return;
+
+    // Cancel any current speech
+    window.speechSynthesis.cancel();
+
+    const taskText = `Here is how to ${data.task}. I have broken it down into ${data.steps.length} steps.`;
+
+    const stepsText = data.steps.map((step, index) => `Step ${index + 1}. ${step}`).join('. ');
+
+    const fullText = `${taskText} ${stepsText}`;
+
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+
+    // Select a good voice if available
+    const voices = window.speechSynthesis.getVoices();
+    // Try to find a natural sounding English voice
+    // Note: Voices load asynchronously, so they might not be available immediately on first load, 
+    // but usually are by the time a task is submitted.
+    const preferredVoice = voices.find(v => v.name.includes('Google US English')) ||
+        voices.find(v => v.lang === 'en-US') ||
+        voices[0];
+
+    if (preferredVoice) {
+        utterance.voice = preferredVoice;
+    }
+
+    utterance.onstart = () => {
+        speakBtn.textContent = 'mn Stop Reading';
+    };
+
+    utterance.onend = () => {
+        speakBtn.textContent = '🔊 Read Steps Aloud';
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function readDisplayedSteps() {
+    // Reconstruct data from DOM if needed, but since we pass data to speakResponse, 
+    // let's just use the current DOM content to build the text.
+
+    const taskTitleText = document.getElementById('taskTitle').textContent;
+    const stepElements = document.querySelectorAll('.step-text');
+
+    if (!taskTitleText) return;
+
+    const steps = Array.from(stepElements).map(el => el.textContent);
+
+    speakResponse({
+        task: taskTitleText,
+        steps: steps
+    });
+}
+
+
+
+// Theme Functions
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to log out?')) {
+            localStorage.removeItem('access_token');
+            window.location.href = 'login.html';
+        }
+    });
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('smart_companion_theme');
+
+    // Check system preference if no saved theme
+    if (!savedTheme) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+    } else {
+        setTheme(savedTheme);
+    }
+}
+
+function toggleTheme() {
+    const newTheme = isDarkMode ? 'light' : 'dark';
+    setTheme(newTheme);
+}
+
+function setTheme(theme) {
+    if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeBtn.textContent = '🌙';
+        isDarkMode = false;
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeBtn.textContent = '☀️';
+        isDarkMode = true;
+    }
+    localStorage.setItem('smart_companion_theme', theme);
+}
+
+// History Functions
+function loadHistory() {
+    const saved = localStorage.getItem('smart_companion_history');
+    if (saved) {
+        try {
+            taskHistory = JSON.parse(saved);
+            renderHistory();
+        } catch (e) {
+            console.error('Failed to parse history', e);
+        }
+    }
+}
+
+function saveHistory() {
+    localStorage.setItem('smart_companion_history', JSON.stringify(taskHistory));
+}
+
+function addToHistory(data) {
+    // Avoid duplicates or simple re-runs of same top task?
+    // For now request is just task string, data has task and steps.
+
+    // Add timestamp
+    const historyItem = {
+        ...data,
+        timestamp: new Date().toISOString()
+    };
+
+    taskHistory.unshift(historyItem);
+
+    // Keep max 50 items
+    if (taskHistory.length > 50) {
+        taskHistory.pop();
+    }
+
+    saveHistory();
+    renderHistory();
+}
+
+function renderHistory() {
+    if (taskHistory.length === 0) {
+        historyList.innerHTML = `
+            <div class="empty-history">
+                No past tasks yet.<br>Start by adding one!
+            </div>
+        `;
+        return;
+    }
+
+    historyList.innerHTML = '';
+
+    taskHistory.forEach((item, index) => {
+        const date = new Date(item.timestamp);
+        const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        const el = document.createElement('div');
+        el.className = 'history-item';
+        el.innerHTML = `
+            <div class="history-task">${item.task}</div>
+            <div class="history-date">${dateStr}</div>
+        `;
+
+        el.addEventListener('click', () => {
+            // Highlight active
+            document.querySelectorAll('.history-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+
+            // Show results
+            displayResults(item);
+
+            // On mobile, close sidebar if we had one (not impl yet but good practice)
+        });
+
+        historyList.appendChild(el);
+    });
+}
